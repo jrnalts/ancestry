@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<!--
+<!-- Feature
   1. 預設顯示 root: u1
   2. Click 某一個 user 要顯示其子代  
   3. 在 root 應該要不能選 parent_id (因為不用)
@@ -38,5 +38,11 @@
 </table>
 
 <br>
+<% if @user %>
+  <%= link_to 'New User', new_user_path(user_id: params[:current_id]) %>
+<% else %>
+  <%= link_to 'New User', new_user_path %>
+<% end %>
 
-<%= link_to 'New User', new_user_path %>
+<br>
+<%= link_to 'Root', users_path %>

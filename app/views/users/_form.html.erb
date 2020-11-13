@@ -13,9 +13,13 @@
   <div class="field">
     <%= f.input :name, label: "Name" %>
   </div>
-
+  
   <div class="field">
-    <%= f.input :parent, input_html: {value: user.parent_id}, label: "Parent ID" %>
+    <% if params[:user_id] %>
+      <%= f.input :parent, input_html: {value: params[:user_id]}, label: "Parent ID" %>
+    <% else %>
+      <%# <%= f.hidden :parent, value: params[:user_id] %>
+    <% end %>
   </div>
 
   <div class="actions">

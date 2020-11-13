@@ -1,11 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
-
+<!--
+  1. 預設顯示 root: u1
+  2. Click 某一個 user 要顯示其子代  
+  3. 在 root 應該要不能選 parent_id (因為不用)
+  4. 如果不是 root，開下線 parent_id 要預設為 current user
+-->
+<% if @user %>
+  <h1><%= @user.name %></h1>
+  <p><%= @user.child_ids.join(' ') %></p>
+<% end %>
 <table>
   <thead>
     <tr>
       <th>Name</th>
+      <th>Ancestry</th>
+      <th>Children</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,7 +24,12 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
+        <td><%= user.ancestry %></td>
+        <td>
+          <% user.child_ids.each do |child_id| %>
+            <%= link_to child_id, url_for(current_id: child_id) %>
+          <% end %>
+        </td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

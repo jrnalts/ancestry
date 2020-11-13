@@ -4,7 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @user = User.find_by(id: params[:current_id])
+    
+    @users = if @user.present?
+               @user.children
+             else
+               User.roots
+             end
   end
 
   # GET /users/1

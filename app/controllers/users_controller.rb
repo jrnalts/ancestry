@@ -24,7 +24,8 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = User.new(name: user_params[:name], parent: User.find(user_params[:parent]))
+    # byebug
 
     respond_to do |format|
       if @user.save
@@ -69,6 +70,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name)
+      params.require(:user).permit(:name, :parent)
     end
+
 end

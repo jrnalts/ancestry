@@ -15,7 +15,7 @@
   </div>
 
   <div class="field">
-    <%= f.input :parent, label: "Parent ID" %>
+    <%= f.input :parent, input_html: {value: user.parent_id}, label: "Parent ID" %>
   </div>
 
   <div class="actions">

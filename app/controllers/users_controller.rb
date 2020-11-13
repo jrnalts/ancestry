@@ -43,7 +43,6 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(name: user_params[:name], parent: User.find(user_params[:parent]))
-        byebug
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else

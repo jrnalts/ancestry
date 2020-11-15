@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <strong>Children's ID</strong>
-  <%= @user.children %>
+  <strong>Children's ID:</strong>
+  <%= @user.children if @user.has_children? %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

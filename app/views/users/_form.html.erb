@@ -15,8 +15,8 @@
   </div>
   
   <div class="field">
-    <% if params[:user_id] %>
       <%= f.input :parent, input_html: {value: params[:user_id]}, label: "Parent ID" %>
+    <% if params[:user_id] %>
     <% else %>
       <%# <%= f.hidden :parent, value: params[:user_id] %>
     <% end %>

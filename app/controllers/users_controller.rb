@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:current_id])
     
     @users = if @user.present?
-               @user.children
+               @user.subtree
              else
                User.roots
              end

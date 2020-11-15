@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'ancestry'
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
 gem 'bootstrap', '~> 4.5', '>= 4.5.3'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
